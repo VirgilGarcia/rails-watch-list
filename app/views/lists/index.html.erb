@@ -1,10 +1,16 @@
   <div class="lists-container">
     <div class="lists">
       <%= link_to "+ Ajouter une liste", new_list_path, class: "btn btn-success btn-lg" %>
-      <% @lists.each do |list| %>
-        <div class="list">
-          <%= link_to list.name, list_path(list.id), class: "btn btn-light btn-lg" %>
-        </div>
+      <h3 class="border-bottom">Mes Listes</h3>
+
+      <% if @lists.length === 0 %>
+        <p style="color: grey">Aucune liste n'a été créees..</p>
+      <% else %>
+        <% @lists.each do |list| %>
+          <div class="list">
+            <%= link_to list.name, list_path(list.id), class: "btn btn-light btn-lg" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

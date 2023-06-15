@@ -30,7 +30,7 @@ data['results'].each do |movie_data|
   poster_url = movie_data['poster_path']
 
   # Créer un nouveau modèle de film avec les informations extraites
-  movie = Movie.new(title: title, overview: overview, rating: rating, poster_url: "https://image.tmdb.org/t/p/original/#{poster_url}")
+  movie = Movie.new(title: title, overview: overview, rating: rating, poster_url: "https://image.tmdb.org/t/p/w500/#{poster_url}")
 
   # Sauvegarder le film en base de données
   movie.save
