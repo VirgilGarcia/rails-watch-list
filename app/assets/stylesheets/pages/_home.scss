@@ -1,1 +1,40 @@
 // Specific CSS for your home-page
+.index {
+  background-image: url('https://photos.tf1.fr/1920/1080/fond-collection-ott-f6bf7c-db0f06-0@1x.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.herobanner {
+  width: 100%;
+  height: 300px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0 0 15px black;
+  }
+}
+
+.lists-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .lists {
+    width: 50%;
+    padding-top: 25px;
+
+    a {
+      margin-bottom: 25px;
+      width: 100%;
+
+    }
+  }
+}

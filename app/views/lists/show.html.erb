@@ -1,0 +1,25 @@
+<div class="info-container">
+  <div class="mb-5 card p-3 mt-3 w-100 d-flex flex-column">
+    <h1><%= @list.name %></h1>
+
+    <div class="mt-auto">
+      <%= link_to 'Retour', lists_path, class: 'btn btn-secondary mt-3' %>
+      <%= link_to "Ecrire un commentaire", new_list_bookmark_path(@list), class: "btn btn-primary mt-3" %>
+    </div>
+
+    <% @bookmarks.each do |bookmark| %>
+      <div class="bookmark card mt-3 d-flex justify-content-center align-items-center flex-columns">
+        <h5><%= bookmark.movie.title %></h5>
+        <img src="<%= bookmark.movie.poster_url %>">
+
+        <div class="comment">
+          <p><%= bookmark.comment %></p>
+        </div>
+
+        <div class="delete">
+          <%= link_to 'Supprimer', bookmark_path(bookmark), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Confirmer la suppression ?' } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

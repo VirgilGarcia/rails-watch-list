@@ -1,0 +1,41 @@
+.info-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+  }
+}
+
+.bookmark {
+  width: 500px;
+  height: auto;
+  padding: 20px 0 0 0;
+
+  img {
+    width: 200px;
+  }
+
+  .comment {
+    width: 100%;
+
+    p {
+      text-align: center;
+      margin-top: 25px;
+      padding: 20px;
+      border: 2px solid rgb(211, 211, 211);
+    }
+  }
+
+  .delete {
+    width: 100%;
+    margin-top: 25px;
+
+    a {
+      width: 100%;
+    }
+  }
+}
