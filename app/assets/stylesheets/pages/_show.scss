@@ -35,4 +35,16 @@
     height: 300px;
     object-fit: cover;
   }
+
+  i {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+    color: white;
+    background-color: rgb(194, 38, 38);
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
 }

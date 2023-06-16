@@ -16,7 +16,7 @@
         <h3 style="color: white;">Il n'y a aucun film dans votre liste !</h3>
       </div>
     <% else %>
-      <div class="d-flex flex-wrap justify-content-between">
+      <div class="d-flex flex-wrap justify-content-center gap-2">
         <% @bookmarks.each do |bookmark| %>
           <div class="card custom-card mt-3">
             <img src="<%= bookmark.movie.poster_url %>" alt="Image">
@@ -25,7 +25,9 @@
               <p class="card-text overview"><%= bookmark.movie.overview %></p>
               <p class="card-text rating">Note/ <%= bookmark.movie.rating %></p>
               <p class="card-text"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %></p>
-              <%= link_to 'Supprimer', bookmark_path(bookmark), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Confirmer la suppression ?' } %>
+              <%= link_to bookmark_path(bookmark), class: "", data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?" } do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
             </div>
           </div>
         <% end %>

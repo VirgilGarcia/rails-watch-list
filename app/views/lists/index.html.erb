@@ -1,15 +1,24 @@
   <div class="lists-container">
     <div class="lists">
-      <%= link_to "+ Ajouter une liste", new_list_path, class: "btn btn-success btn-lg" %>
+      <%= link_to new_list_path, class: "btn btn-success btn-lg" do %>
+        <i class="fa-solid fa-plus"></i> Ajoutez une liste
+      <% end %>
       <h3 class="border-bottom">Mes Listes</h3>
 
       <% if @lists.length === 0 %>
         <p style="color: grey">Aucune liste n'a été créees..</p>
       <% else %>
         <% @lists.each do |list| %>
-          <div class="list">
-            <%= link_to list.name, list_path(list.id), class: "btn btn-light btn-lg" %>
-          </div>
+        <div class="list">
+          <%= link_to list_path(list), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer ?" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+          <% if list.photo.attached? %>
+            <%= link_to list.name, list_path(list.id), class: "list-button", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('#{cl_image_path(list.photo.key, height: 300, crop: :fill)}')" %>
+          <% else %>
+            <%= link_to list.name, list_path(list.id), class: "list-button", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/dpp39wq4a/image/upload/v1686927434/basic_ycmkt1.jpg')" %>
+          <% end %>
+        </div>
         <% end %>
       <% end %>
     </div>

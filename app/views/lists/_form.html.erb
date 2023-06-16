@@ -2,6 +2,7 @@
   <div class="card p-3 mt-3 w-50">
     <%= simple_form_for @list, method: :post, html: { class: "form" } do |f| %>
       <%= f.input :name, placeholder: "Ecrivez le titre de votre liste..", class: "form-control" %>
+      <%= f.input :photo, as: :file, class: "form-control" %>
       <div class="form-group d-flex justify-content-between">
         <%= link_to 'Annuler', lists_path, class: 'btn btn-danger'%>
         <%= f.submit "Ajoutez", class: 'btn btn-primary mr-2' %>
